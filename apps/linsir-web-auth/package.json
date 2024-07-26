@@ -1,0 +1,21 @@
+{
+  "name": "@apps/linsir-web-auth",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linsir-dev/linsir-web.git",
+    "directory": "apps/linsir-web-auth"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@config/vite": "workspace:*",
+    "color": "^4.2.3"
+  }
+}
