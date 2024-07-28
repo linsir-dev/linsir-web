@@ -28,8 +28,8 @@ const { setLoginState, getLoginState } = useLoginState();
 const { getFormRules } = useFormRules();
 
 const formData = reactive({
-  account: 'vben',
-  password: '123456'
+  account: 'admin',
+  password: '123'
 });
 
 const { validForm } = useFormValid(formRef);

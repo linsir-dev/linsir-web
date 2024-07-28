@@ -32,7 +32,7 @@ export function doLoginApi(
 ) {
   return request.post<LoginResultModel>(
     {
-      url: '/login',
+      url: '/linsir-auth-server/saas/login',
       params,
     },
     {
@@ -43,7 +43,7 @@ export function doLoginApi(
 
 export function getUserInfoApi() {
   return request.get<UserInfoModel>(
-    { url: '/getUserInfo' },
+    { url: '/linsir-auth-server/saas/getUserInfo' },
     { errorMessageMode: 'none' },
   )
 }
