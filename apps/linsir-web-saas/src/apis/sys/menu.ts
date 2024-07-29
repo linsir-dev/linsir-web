@@ -17,7 +17,7 @@ export interface RouteItem {
 export type GetMenuListResultModel = RouteItem[]
 
 enum Api {
-  GetMenuList = '/getMenuList',
+  GetMenuList = '/linsir-saas-server/menu/getMenuList',
 }
 
 /**

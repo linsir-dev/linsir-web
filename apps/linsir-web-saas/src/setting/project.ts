@@ -27,7 +27,7 @@ export const projectSetting: DefineAppConfigOptions = {
   removeAllHttpPending: true,
   permissionCacheType: CacheTypeEnum.LOCAL,
   settingButtonPosition: SettingButtonPositionEnum.AUTO,
-  permissionMode: PermissionModeEnum.ROUTE_MAPPING,
+  permissionMode: PermissionModeEnum.BACK,
   sessionTimeoutProcessing: SessionTimeoutProcessingEnum.ROUTE_JUMP,
   grayMode: false,
   colorWeak: false,

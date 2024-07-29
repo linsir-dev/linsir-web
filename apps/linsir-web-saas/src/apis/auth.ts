@@ -49,7 +49,7 @@ export function getUserInfoApi() {
 }
 
 export function getPermCode() {
-  return request.get<string[]>({ url: '/getPermCode' })
+  return request.get<string[]>({ url: '/linsir-saas-server/user/getPermCode' })
 }
 
 export function doLogoutApi() {
