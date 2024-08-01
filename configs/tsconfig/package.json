@@ -1,9 +1,18 @@
 {
   "name": "@config/tsconfig",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "files": [
     "base.json",
     "server.json"
-  ]
+  ],
+  "scripts": {
+     
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tsc-config": "^0.0.1"
+  }
 }

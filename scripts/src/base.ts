@@ -5,7 +5,7 @@ import {
   filterWorkspace,
   getWorkspacePackages,
 } from './helper'
-import { isArray, isString } from '@vben/utils'
+import { isArray, isString } from '@linsir/utils'
 import { DEFAULT_SELECT_TYPE } from './constant'
 // import ora from 'ora'
 // const spinner = ora({
