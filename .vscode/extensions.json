@@ -2,6 +2,7 @@
     "recommendations": [
         "mikestead.dotenv",
         "vscode-icons-team.vscode-icons",
-        "gravityfree.tsc-config"
+        "gravityfree.tsc-config",
+        "glenn2223.live-sass"
     ]
 }
