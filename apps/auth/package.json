@@ -12,6 +12,7 @@
     "@vue/shared": "^3.4.35",
     "@vueuse/core": "^10.11.0",
     "axios": "^1.7.2",
+    "color": "^4.2.3",
     "element-plus": "^2.7.8",
     "pinia": "^2.2.0",
     "vue": "^3.4.31",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@iconify-json/ep": "^1.1.15",
+    "@types/color": "^3.0.6",
     "@vitejs/plugin-vue": "^5.1.1",
     "@vue/compiler-sfc": "^3.4.35",
     "dotenv": "^16.4.5",

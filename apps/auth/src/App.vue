@@ -1,16 +1,33 @@
 <script setup lang="ts">
-import { useCounterStore } from '@/store/counter'
-import { ElConfigProvider } from 'element-plus'
-import { useAppStore } from '@/store/modules/app'
+import { useAppStore, useSettingsStore } from "@/store";
+import defaultSettings from "@/settings";
+import { ThemeEnum } from "@/enums/ThemeEnum";
+import { SizeEnum } from "@/enums/SizeEnum";
+import { useCounterStore } from "@/store/counter";
 
 const appStore = useAppStore();
 const counterStore = useCounterStore();
-console.log(import.meta.env.VITE_APP_TITLE)
+const settingsStore = useSettingsStore();
 
+const locale = computed(() => {
+  appStore.locale;
+});
+
+const watermarkEnabled = computed(() => {
+  settingsStore.watermarkEnabled;
+});
+
+// 明亮/暗黑主题水印字体颜色适配
+const fontColor = computed(() => {
+  return settingsStore.theme === ThemeEnum.DARK
+    ? "rgba(255, 255, 255, .15)"
+    : "rgba(0, 0, 0, .15)";
+});
+console.log(import.meta.env.VITE_APP_TITLE);
 </script>
 
 <template>
-  <el-config-provider :locale="appStore.locale" >
+  <el-config-provider :locale="appStore.locale">
     <router-view />
   </el-config-provider>
 </template>
