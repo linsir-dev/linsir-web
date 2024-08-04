@@ -97,8 +97,6 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         "sortablejs",
         "path-to-regexp",
         "echarts",
-        "@wangeditor/editor",
-        "@wangeditor/editor-for-vue",
         "vue-i18n",
         "path-browserify",
         "element-plus/es/components/form/style/css",

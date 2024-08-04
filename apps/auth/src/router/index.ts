@@ -1,25 +1,21 @@
 // src/router/index.ts
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+import type { App } from "vue";
 
 //export const Layout = () => import('@/layout/index.vue');
 
 // 静态路由
 export const constantRoutes: RouteRecordRaw[] = [
-  
   {
-    path: '/',
-    component: () => import('@/views/home/index.vue'),
-    meta: { hidden: true }
+    path: "/",
+    component: () => import("@/views/home/index.vue"),
+    meta: { hidden: true },
   },
   {
-    path: '/login',
-    component: () => import('@/views/login/index.vue'),
-    meta: { 
-      
-     }
+    path: "/login",
+    component: () => import("@/views/login/index.vue"),
+    meta: {},
   },
-
-  
 ];
 
 /**
@@ -29,14 +25,19 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes as RouteRecordRaw[],
   // 刷新时，滚动条位置还原
-  scrollBehavior: () => ({ left: 0, top: 0 })
+  scrollBehavior: () => ({ left: 0, top: 0 }),
 });
+
+// 全局注册 router
+export function setupRouter(app: App<Element>) {
+  app.use(router);
+}
 
 /**
  * 重置路由
  */
 export function resetRouter() {
-  router.replace({ path: '/login' });
+  router.replace({ path: "/login" });
   location.reload();
 }
 
