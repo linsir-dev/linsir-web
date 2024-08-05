@@ -1,6 +1,6 @@
 import request from "@/utils/request";
 // 菜单基础URL
-const MENU_BASE_URL = "/api/v1/menus";
+const MENU_BASE_URL = "/linsir-saas-server/menu";
 
 class MenuAPI {
   /**
@@ -12,7 +12,7 @@ class MenuAPI {
    */
   static getRoutes() {
     return request<any, RouteVO[]>({
-      url: `${MENU_BASE_URL}/routes`,
+      url: `${MENU_BASE_URL}/getMenuList`,
       method: "get",
     });
   }

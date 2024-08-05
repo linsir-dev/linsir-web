@@ -12,7 +12,7 @@ const settingsStore = useSettingsStore();
 const locale = computed(() => {
   appStore.locale;
 });
-
+const size = computed(() => appStore.size as SizeEnum);
 const watermarkEnabled = computed(() => {
   settingsStore.watermarkEnabled;
 });
@@ -27,8 +27,19 @@ console.log(import.meta.env.VITE_APP_TITLE);
 </script>
 
 <template>
-  <el-config-provider :locale="appStore.locale">
-    <router-view />
+  <el-config-provider :locale="locale" :size="size">
+    <!-- 开启水印 -->
+    <el-watermark
+      v-if="watermarkEnabled"
+      :font="{ color: fontColor }"
+      :content="defaultSettings.watermarkContent"
+      :z-index="9999"
+      class="wh-full"
+    >
+      <router-view />
+    </el-watermark>
+    <!-- 关闭水印 -->
+    <router-view v-else />
   </el-config-provider>
 </template>
 

@@ -1,6 +1,6 @@
 import request from "@/utils/request";
 
-const USER_BASE_URL = "/api/v1/users";
+const USER_BASE_URL = "/linsir-auth-server/auth";
 
 class UserAPI {
   /**
@@ -10,7 +10,7 @@ class UserAPI {
    */
   static getInfo() {
     return request<any, UserInfo>({
-      url: `${USER_BASE_URL}/me`,
+      url: `${USER_BASE_URL}/getUserInfo`,
       method: "get",
     });
   }

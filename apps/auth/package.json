@@ -34,6 +34,7 @@
     "@types/color": "^3.0.6",
     "@types/path-browserify": "^1.0.2",
     "@vitejs/plugin-vue": "^5.1.1",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
     "@vue/compiler-sfc": "^3.4.35",
     "dotenv": "^16.4.5",
     "fast-glob": "^3.3.2",
@@ -49,7 +50,9 @@
     "unplugin-icons": "^0.19.1",
     "unplugin-vue-components": "^0.27.3",
     "vite": "^5.3.4",
+    "vite-plugin-mock-dev-server": "^1.6.1",
     "vite-plugin-svg-icons": "^2.0.1",
+    "vite-plugin-vue-devtools": "^7.3.7",
     "vue-tsc": "^2.0.29"
   },
   "engines": {

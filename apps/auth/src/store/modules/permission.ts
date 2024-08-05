@@ -28,6 +28,7 @@ export const usePermissionStore = defineStore("permission", () => {
           resolve(dynamicRoutes);
         })
         .catch((error) => {
+          console.log(error);
           reject(error);
         });
     });

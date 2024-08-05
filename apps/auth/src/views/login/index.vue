@@ -202,6 +202,7 @@ function handleLoginSubmit() {
         .login(loginData.value)
         .then(() => {
           const { path, queryParams } = parseRedirect();
+          console.log(path);
           router.push({ path: path, query: queryParams });
         })
         .catch(() => {

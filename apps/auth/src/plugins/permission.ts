@@ -16,7 +16,6 @@ export function setupPermission() {
   router.beforeEach(async (to, from, next) => {
     NProgress.start();
     const hasToken = localStorage.getItem(TOKEN_KEY);
-
     if (hasToken) {
       if (to.path === "/login") {
         // 如果已登录，跳转到首页
