@@ -1,24 +1,10 @@
-// src/router/index.ts
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import type { App } from "vue";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
 export const Layout = () => import("@/layout/index.vue");
 
 // 静态路由
-// 静态路由
 export const constantRoutes: RouteRecordRaw[] = [
-  {
-    path: "/redirect",
-    component:  ,
-    meta: { hidden: true },
-    children: [
-      {
-        path: "/redirect/:path(.*)",
-        component: () => import("@/views/redirect/index.vue"),
-      },
-    ],
-  },
-
   {
     path: "/login",
     component: () => import("@/views/login/index.vue"),
@@ -29,7 +15,7 @@ export const constantRoutes: RouteRecordRaw[] = [
     path: "/",
     name: "/",
     component: Layout,
-    redirect: "/dashboard",
+    redirect: "dashboard",
     children: [
       {
         path: "dashboard",
@@ -115,7 +101,7 @@ export const constantRoutes: RouteRecordRaw[] = [
  */
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: constantRoutes as RouteRecordRaw[],
+  routes: constantRoutes,
   // 刷新时，滚动条位置还原
   scrollBehavior: () => ({ left: 0, top: 0 }),
 });
@@ -130,7 +116,6 @@ export function setupRouter(app: App<Element>) {
  */
 export function resetRouter() {
   router.replace({ path: "/login" });
-  location.reload();
 }
 
 export default router;
