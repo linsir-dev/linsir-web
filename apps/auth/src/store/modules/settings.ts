@@ -1,7 +1,6 @@
 import defaultSettings from "@/settings";
 import { ThemeEnum } from "@/enums/ThemeEnum";
 import Color from "color";
-import { defineStore } from "pinia";
 
 type SettingsValue = boolean | string;
 

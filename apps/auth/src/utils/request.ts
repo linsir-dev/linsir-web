@@ -1,20 +1,26 @@
-//  src/utils/request.ts
 import axios, { InternalAxiosRequestConfig, AxiosResponse } from "axios";
 import { useUserStoreHook } from "@/store/modules/user";
+import { ResultEnum } from "@/enums/ResultEnum";
+import { TOKEN_KEY } from "@/enums/CacheEnum";
+import qs from "qs";
 
 // 创建 axios 实例
 const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 50000,
   headers: { "Content-Type": "application/json;charset=utf-8" },
+
+  paramsSerializer: (params) => {
+    return qs.stringify(params);
+  },
 });
 
 // 请求拦截器
 service.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const userStore = useUserStoreHook();
-    if (userStore.token) {
-      config.headers.Authorization = userStore.token;
+    const accessToken = localStorage.getItem(TOKEN_KEY);
+    if (accessToken) {
+      config.headers.Authorization = accessToken;
     }
     return config;
   },
@@ -26,30 +32,37 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse) => {
-    const reData = response.data;
+    // 检查配置的响应类型是否为二进制类型（'blob' 或 'arraybuffer'）, 如果是，直接返回响应对象
+    if (
+      response.config.responseType === "blob" ||
+      response.config.responseType === "arraybuffer"
+    ) {
+      return response;
+    }
 
-    const { code, msg, data } = reData;
-
-    console.log(code);
-    // 登录成功
-    if (code === 200) {
+    const { code, data, msg } = response.data;
+    if (code === ResultEnum.SUCCESS) {
       return data;
     }
+
     ElMessage.error(msg || "系统出错");
     return Promise.reject(new Error(msg || "Error"));
   },
   (error: any) => {
+    // 异常处理
     if (error.response.data) {
       const { code, msg } = error.response.data;
-      // token 过期，跳转登录页
-      if (code === "A0230") {
-        ElMessageBox.confirm("当前页面已失效，请重新登录", "提示", {
-          confirmButtonText: "确定",
-          type: "warning",
-        }).then(() => {
-          localStorage.clear(); // @vueuse/core 自动导入
-          window.location.href = "/";
+      if (code === ResultEnum.TOKEN_INVALID) {
+        ElNotification({
+          title: "提示",
+          message: "您的会话已过期，请重新登录",
+          type: "info",
         });
+        useUserStoreHook()
+          .resetToken()
+          .then(() => {
+            location.reload();
+          });
       } else {
         ElMessage.error(msg || "系统出错");
       }

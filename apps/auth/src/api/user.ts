@@ -1,6 +1,6 @@
 import request from "@/utils/request";
 
-const USER_BASE_URL = "/linsir-auth-server/auth";
+const USER_BASE_URL = "/api/v1/users";
 
 class UserAPI {
   /**
@@ -10,7 +10,7 @@ class UserAPI {
    */
   static getInfo() {
     return request<any, UserInfo>({
-      url: `${USER_BASE_URL}/getUserInfo`,
+      url: `${USER_BASE_URL}/me`,
       method: "get",
     });
   }
@@ -175,10 +175,7 @@ export interface UserPageQuery extends PageQuery {
   deptId?: number;
 
   /** 开始时间 */
-  startTime?: string;
-
-  /** 结束时间 */
-  endTime?: string;
+  createTimeRange?: [string, string];
 }
 
 /** 用户分页对象 */

@@ -13,7 +13,6 @@ import "animate.css";
 import { InstallCodemirro } from "codemirror-editor-vue3";
 
 const app = createApp(App);
-
 // 注册插件
 app.use(setupPlugins);
 app.use(InstallCodemirro);

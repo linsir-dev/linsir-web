@@ -102,9 +102,14 @@
         </div>
       </el-form>
     </el-card>
+
     <!-- ICP备案 -->
     <div class="icp-info" v-show="icpVisible">
-      <p>Copyright © 2021 - 2024 linsir All Rights Reserved 版权所有</p>
+      <p>
+        Copyright © 2021 - 2024 youlai.tech All Rights Reserved. 有来技术
+        版权所有
+      </p>
+      <p>皖ICP备20006496号-3</p>
     </div>
   </div>
 </template>
@@ -135,12 +140,10 @@ const { height } = useWindowSize();
 // 国际化 Internationalization
 const { t } = useI18n();
 
-// 是否显示 ICP 备案信息
-const icpVisible = ref(true);
-
 // 是否暗黑模式
 const isDark = ref(settingsStore.theme === ThemeEnum.DARK);
-
+// 是否显示 ICP 备案信息
+const icpVisible = ref(true);
 // 按钮 loading 状态
 const loading = ref(false);
 // 是否大写锁定
@@ -153,6 +156,8 @@ const loginFormRef = ref<FormInstance>();
 const loginData = ref<LoginData>({
   username: "admin",
   password: "123456",
+  captchaKey: "",
+  captchaCode: "",
 } as LoginData);
 
 const loginRules = computed(() => {
@@ -190,9 +195,10 @@ const loginRules = computed(() => {
 function getCaptcha() {
   AuthAPI.getCaptcha().then((data) => {
     loginData.value.captchaKey = data.captchaKey;
-    captchaBase64.value = "data:image/png;base64," + data.captchaBase64;
+    captchaBase64.value = data.captchaBase64;
   });
 }
+
 /** 登录表单提交 */
 function handleLoginSubmit() {
   loginFormRef.value?.validate((valid: boolean) => {
@@ -202,7 +208,6 @@ function handleLoginSubmit() {
         .login(loginData.value)
         .then(() => {
           const { path, queryParams } = parseRedirect();
-          console.log(path);
           router.push({ path: path, query: queryParams });
         })
         .catch(() => {
@@ -233,12 +238,22 @@ function parseRedirect(): {
 
   return { path, queryParams };
 }
+
 /** 主题切换 */
 const toggleTheme = () => {
   const newTheme =
     settingsStore.theme === ThemeEnum.DARK ? ThemeEnum.LIGHT : ThemeEnum.DARK;
   settingsStore.changeTheme(newTheme);
 };
+
+/** 根据屏幕宽度切换设备模式 */
+watchEffect(() => {
+  if (height.value < 600) {
+    icpVisible.value = false;
+  } else {
+    icpVisible.value = true;
+  }
+});
 
 /** 检查输入大小写 */
 function checkCapslock(event: KeyboardEvent) {

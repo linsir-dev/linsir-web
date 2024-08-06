@@ -1,4 +1,4 @@
-import { App } from "vue";
+import type { App } from "vue";
 import { createPinia } from "pinia";
 
 const store = createPinia();
@@ -9,8 +9,8 @@ export function setupStore(app: App<Element>) {
 }
 
 export * from "./modules/app";
-export * from "./modules/settings";
-export * from "./modules/user";
 export * from "./modules/permission";
+export * from "./modules/settings";
 export * from "./modules/tagsView";
+export * from "./modules/user";
 export { store };
