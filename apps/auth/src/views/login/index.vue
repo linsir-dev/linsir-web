@@ -76,7 +76,11 @@
               @keyup.enter="handleLoginSubmit"
             />
 
-            <el-image @click="getCaptcha" :src="captchaBase64" class="captcha-image" />
+            <el-image
+              @click="getCaptcha"
+              :src="captchaBase64"
+              class="captcha-image"
+            />
           </div>
         </el-form-item>
 
