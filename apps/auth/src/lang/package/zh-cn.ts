@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export default {
   // 路由国际化
   route: {
@@ -6,6 +8,7 @@ export default {
   },
   // 登录页面国际化
   login: {
+    title: "统一登录系统",
     username: "用户名",
     password: "密码",
     login: "登 录",

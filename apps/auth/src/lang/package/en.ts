@@ -6,6 +6,7 @@ export default {
   },
   // 登录页面国际化
   login: {
+    title: "anth",
     username: "Username",
     password: "Password",
     login: "Login",

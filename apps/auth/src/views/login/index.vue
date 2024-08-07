@@ -14,7 +14,7 @@
     <!-- 登录表单 -->
     <el-card class="login-card">
       <div class="text-center relative">
-        <h2>{{ defaultSettings.title }}</h2>
+        <h2>{{ $t("login.title") }}</h2>
         <el-tag class="ml-2 absolute-rt">{{ defaultSettings.version }}</el-tag>
       </div>
 
@@ -76,11 +76,7 @@
               @keyup.enter="handleLoginSubmit"
             />
 
-            <el-image
-              @click="getCaptcha"
-              :src="captchaBase64"
-              class="captcha-image"
-            />
+            <el-image @click="getCaptcha" :src="captchaBase64" class="captcha-image" />
           </div>
         </el-form-item>
 
@@ -105,11 +101,7 @@
 
     <!-- ICP备案 -->
     <div class="icp-info" v-show="icpVisible">
-      <p>
-        Copyright © 2021 - 2024 youlai.tech All Rights Reserved. 有来技术
-        版权所有
-      </p>
-      <p>皖ICP备20006496号-3</p>
+      <p>Copyright © 2021 - 2024 linsir All Rights Reserved.</p>
     </div>
   </div>
 </template>
