@@ -2,6 +2,8 @@ import request from "@/utils/request";
 
 const USER_BASE_URL = "/api/v1/users";
 
+const AUTH_BASE_URL = "/linsir-auth-server/auth/";
+
 class UserAPI {
   /**
    * 获取当前登录用户信息
@@ -10,7 +12,7 @@ class UserAPI {
    */
   static getInfo() {
     return request<any, UserInfo>({
-      url: `${USER_BASE_URL}/me`,
+      url: `${AUTH_BASE_URL}/getUserInfo`,
       method: "get",
     });
   }

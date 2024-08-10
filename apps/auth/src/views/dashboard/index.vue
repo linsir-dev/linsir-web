@@ -12,9 +12,7 @@
             />
             <div>
               <p>{{ greetings }}</p>
-              <p class="text-sm text-gray">
-                今日天气晴朗，气温在15℃至25℃之间，东南风。
-              </p>
+              <p class="text-sm text-gray">今日天气晴朗，气温在15℃至25℃之间，东南风。</p>
             </div>
           </div>
         </el-col>
@@ -45,22 +43,18 @@
         <el-card shadow="never">
           <template #header>
             <div class="flex-x-between">
-              <span class="text-[var(--el-text-color-secondary)]"
-                >在线用户</span
-              >
+              <span class="text-[var(--el-text-color-secondary)]"> 在线用户 </span>
               <el-tag type="success" size="small">-</el-tag>
             </div>
           </template>
 
           <div class="flex-x-between mt-2">
-            <span class="text-lg"> 1</span>
+            <span class="text-lg">1</span>
             <svg-icon icon-class="user" size="2em" />
           </div>
-          <div
-            class="flex-x-between mt-2 text-sm text-[var(--el-text-color-secondary)]"
-          >
-            <span> 总用户数 </span>
-            <span>5 </span>
+          <div class="flex-x-between mt-2 text-sm text-[var(--el-text-color-secondary)]">
+            <span>总用户数</span>
+            <span>105</span>
           </div>
         </el-card>
       </el-col>
@@ -87,10 +81,7 @@
 
               <div class="flex-x-between">
                 <el-skeleton-item variant="text" style="width: 30%" />
-                <el-skeleton-item
-                  variant="circle"
-                  style="width: 2em; height: 2em"
-                />
+                <el-skeleton-item variant="circle" style="width: 2em; height: 2em" />
               </div>
               <div class="mt-5 flex-x-between">
                 <el-skeleton-item variant="text" style="width: 50%" />
@@ -102,9 +93,9 @@
             <el-card shadow="never">
               <template #header>
                 <div class="flex-x-between">
-                  <span class="text-[var(--el-text-color-secondary)]">{{
-                    item.title
-                  }}</span>
+                  <span class="text-[var(--el-text-color-secondary)]">
+                    {{ item.title }}
+                  </span>
                   <el-tag :type="item.tagType" size="small">
                     {{ item.granularity }}
                   </el-tag>
@@ -113,14 +104,8 @@
 
               <div class="flex-x-between mt-2">
                 <div class="flex-y-center">
-                  <span class="text-lg"> {{ item.todayCount }}</span>
-                  <span
-                    :class="[
-                      'text-xs',
-                      'ml-2',
-                      getGrowthRateClass(item.growthRate),
-                    ]"
-                  >
+                  <span class="text-lg">{{ item.todayCount }}</span>
+                  <span :class="['text-xs', 'ml-2', getGrowthRateClass(item.growthRate)]">
                     <i-ep-top v-if="item.growthRate > 0" />
                     <i-ep-bottom v-else-if="item.growthRate < 0" />
                     {{ formatGrowthRate(item.growthRate) }}
@@ -132,8 +117,8 @@
               <div
                 class="flex-x-between mt-2 text-sm text-[var(--el-text-color-secondary)]"
               >
-                <span>总{{ item.title }} </span>
-                <span> {{ item.totalCount }} </span>
+                <span>总{{ item.title }}</span>
+                <span>{{ item.totalCount }}</span>
               </div>
             </el-card>
           </template>
@@ -151,21 +136,18 @@
           <template #header>
             <div class="flex-x-between">
               <div class="flex-y-center">
-                通知公告<el-icon class="ml-1"><Notification /></el-icon>
+                通知公告
+                <el-icon class="ml-1"><Notification /></el-icon>
               </div>
               <el-link type="primary">
-                <span class="text-xs">查看更多</span
-                ><el-icon class="text-xs"><ArrowRight /></el-icon
-              ></el-link>
+                <span class="text-xs">查看更多</span>
+                <el-icon class="text-xs"><ArrowRight /></el-icon>
+              </el-link>
             </div>
           </template>
 
           <el-scrollbar height="400px">
-            <div
-              v-for="(item, index) in notices"
-              :key="index"
-              class="flex-y-center py-3"
-            >
+            <div v-for="(item, index) in notices" :key="index" class="flex-y-center py-3">
               <el-tag :type="getNoticeLevelTag(item.level)" size="small">
                 {{ getNoticeLabel(item.type) }}
               </el-tag>
@@ -217,13 +199,13 @@ const greetings = computed(() => {
 // 右上角数量
 const statisticData = ref([
   {
-    value: 99,
+    value: 9,
     iconClass: "message",
     title: "消息",
     key: "message",
   },
   {
-    value: 50,
+    value: 30,
     iconClass: "todo",
     title: "待办",
     suffix: "/100",
@@ -232,7 +214,7 @@ const statisticData = ref([
   {
     value: 10,
     iconClass: "project",
-    title: "项目",
+    title: "应用",
     key: "project",
   },
 ]);
@@ -356,8 +338,7 @@ const notices = ref([
   {
     level: 2,
     type: NoticeTypeEnum.SECURITY_ALERT,
-    title:
-      "请注意，近期有恶意软件通过即时通讯工具传播，请勿下载不明来源的文件。",
+    title: "请注意，近期有恶意软件通过即时通讯工具传播，请勿下载不明来源的文件。",
   },
   {
     level: 2,

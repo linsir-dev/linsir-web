@@ -191,7 +191,7 @@ const loginRules = computed(() => {
 function getCaptcha() {
   AuthAPI.getCaptcha().then((data) => {
     loginData.value.captchaKey = data.captchaKey;
-    captchaBase64.value = data.captchaBase64;
+    captchaBase64.value = "data:image/jpeg;base64," + data.captchaBase64;
   });
 }
 

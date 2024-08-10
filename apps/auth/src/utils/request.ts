@@ -40,13 +40,13 @@ service.interceptors.response.use(
       return response;
     }
 
-    const { code, data, msg } = response.data;
+    const { code, data, message } = response.data;
     if (code === ResultEnum.SUCCESS) {
       return data;
     }
 
-    ElMessage.error(msg || "系统出错");
-    return Promise.reject(new Error(msg || "Error"));
+    ElMessage.error(message || "系统出错");
+    return Promise.reject(new Error(message || "Error"));
   },
   (error: any) => {
     // 异常处理
