@@ -11,9 +11,11 @@ import "@/styles/index.scss";
 import "uno.css";
 import "animate.css";
 import { InstallCodemirro } from "codemirror-editor-vue3";
+import DataVVue3 from "@kjgl77/datav-vue3";
 
 const app = createApp(App);
 // 注册插件
 app.use(setupPlugins);
+app.use(DataVVue3);
 app.use(InstallCodemirro);
 app.mount("#app");

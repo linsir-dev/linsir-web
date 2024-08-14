@@ -20,7 +20,7 @@ export function setupPermission() {
     if (hasToken) {
       if (to.path === "/login") {
         // 如果已登录，跳转到首页
-        next({ path: "/" });
+        next({ path: "/screen" });
         NProgress.done();
       } else {
         const userStore = useUserStore();
