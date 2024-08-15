@@ -1,18 +1,19 @@
 <template>
   <div class="right-chart-1">
-    <div class="rc1-header">
-      赵六收费站
-    </div>
-
-    <div class="rc1-chart-container">
-      <div class="left">
-        <div class="number">
-          262
-        </div>
-        <div>设备运行总数</div>
-      </div>
-
-      <dv-capsule-chart class="right" :config="state.config" />
+    <dv-decoration-3 style="width: 400px; height: 30px" />
+    <div style="width: 100%; margin-top: 50px; margin-left: 30px">
+      <el-row :gutter="0">
+        <el-col :span="12">
+          <dv-decoration-9 style="width: 150px; height: 150px">
+            66%
+          </dv-decoration-9>
+        </el-col>
+        <el-col :span="12">
+          <dv-decoration-9 style="width: 150px; height: 150px">
+            60%
+          </dv-decoration-9>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -22,29 +23,29 @@ const state = reactive({
   config: {
     data: [
       {
-        name: '收费系统',
+        name: "收费系统",
         value: 25,
       },
       {
-        name: '通信系统',
+        name: "通信系统",
         value: 66,
       },
       {
-        name: '监控系统',
+        name: "监控系统",
         value: 123,
       },
       {
-        name: '供配电系统',
+        name: "供配电系统",
         value: 72,
       },
       {
-        name: '其他',
+        name: "其他",
         value: 99,
       },
     ],
-    unit: '件',
+    unit: "件",
   },
-})
+});
 </script>
 
 <style lang="less">

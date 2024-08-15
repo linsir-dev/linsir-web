@@ -1,85 +1,148 @@
 <template>
   <div class="center-cmp">
     <div class="cc-header">
-      <dv-decoration-1 style="width:200px;height:50px;" />
-      <div>机电设备总数</div>
-      <dv-decoration-1 style="width:200px;height:50px;" />
+      <dv-decoration-1 style="width: 200px; height: 50px" />
+      <div>SaaS概览</div>
+      <dv-decoration-1 style="width: 200px; height: 50px" />
     </div>
-
-    <div class="cc-details">
-      <div>设备总数</div>
-      <div class="card">
-        2
-      </div>
-      <div class="card">
-        1
-      </div>
-      <div class="card">
-        3
-      </div>
-      <div class="card">
-        7
-      </div>
-    </div>
+    <el-row :gutter="0">
+      <el-col :span="2">
+        <dv-loading />
+      </el-col>
+      <el-col :span="4">
+        <div class="cc-details">
+          <div>租户数量</div>
+        </div>
+      </el-col>
+      <el-col :span="6">
+        <dv-digital-flop
+          :config="state.flop1"
+          style="
+            width: 200px;
+            height: 50px;
+            margin-top: 15px;
+            font-weight: bold;
+          "
+        />
+      </el-col>
+      <el-col :span="2">
+        <dv-loading />
+      </el-col>
+      <el-col :span="4">
+        <div class="cc-details">
+          <div>应用实例</div>
+        </div>
+      </el-col>
+      <el-col :span="6">
+        <dv-digital-flop
+          :config="state.flop2"
+          style="
+            width: 200px;
+            height: 50px;
+            margin-top: 15px;
+            font-weight: bold;
+          "
+        />
+      </el-col>
+    </el-row>
 
     <div class="cc-main-container">
-      <div class="ccmc-left">
-        <div class="station-info">
-          收费站<span>1315</span>
-        </div>
-        <div class="station-info">
-          监控中心<span>415</span>
-        </div>
-      </div>
-
-      <dv-active-ring-chart class="ccmc-middle" :config="state.config" />
-
-      <div class="ccmc-right">
-        <div class="station-info">
-          <span>90</span>道路外场
-        </div>
-        <div class="station-info">
-          <span>317</span>其他
-        </div>
-      </div>
-
-      <LabelTag :config="state.labelConfig" />
+      <dv-capsule-chart
+        :config="state.chart"
+        style="width: 300px; height: 200px"
+      />
+      <dv-capsule-chart
+        :config="state.chart"
+        style="width: 300px; height: 200px"
+      />
+      <dv-capsule-chart
+        :config="state.chart"
+        style="width: 300px; height: 200px"
+      />
+    </div>
+    <div class="cc-main-container">
+      <dv-water-level-pond
+        :config="state.pond"
+        style="width: 300px; height: 200px"
+      />
+      <dv-water-level-pond
+        :config="state.pond"
+        style="width: 300px; height: 200px"
+      />
+      <dv-water-level-pond
+        :config="state.pond"
+        style="width: 300px; height: 200px"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-
 const state = reactive({
+  pond: {
+    data: [66],
+  },
+  chart: {
+    data: [
+      {
+        name: "南阳",
+        value: 167,
+      },
+      {
+        name: "周口",
+        value: 67,
+      },
+      {
+        name: "漯河",
+        value: 123,
+      },
+      {
+        name: "郑州",
+        value: 55,
+      },
+      {
+        name: "西峡",
+        value: 98,
+      },
+    ],
+  },
+  flop1: {
+    number: [8],
+    content: "{nt}个",
+  },
+  flop2: {
+    number: [35],
+    content: "{nt}个",
+  },
   config: {
     data: [
       {
-        name: '收费站',
+        name: "收费站",
         value: 1315,
       },
       {
-        name: '监控中心',
+        name: "监控中心",
         value: 415,
       },
       {
-        name: '道路外场',
+        name: "道路外场",
         value: 90,
       },
       {
-        name: '其他',
+        name: "其他",
         value: 317,
       },
     ],
-    color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
+    color: ["#00baff", "#3de7c9", "#fff", "#ffc530", "#469f4b"],
     lineWidth: 30,
-    radius: '55%',
-    activeRadius: '60%',
+    radius: "55%",
+    activeRadius: "60%",
   },
 
   labelConfig: {
-    data: ['收费站', '监控中心', '道路外场', '其他'],
+    data: ["收费站", "监控中心", "道路外场", "其他"],
   },
-})
+});
 </script>
 
 <style lang="less">
@@ -92,22 +155,29 @@ const state = reactive({
   flex-direction: column;
 
   .cc-header {
-    height: 70px;
+    height: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 30px;
+    font-weight: bold;
+
+    .el-col {
+      margin-top: 30px;
+    }
   }
 
   .cc-details {
-    height: 120px;
+    margin-top: 15px;
+    height: 50px;
     display: flex;
     justify-content: center;
-    font-size: 32px;
+    font-size: 30px;
     align-items: center;
+    font-weight: bold;
 
     .card {
-      background-color: rgba(4,49,128,.6);
+      background-color: rgba(4, 49, 128, 0.6);
       color: #08e5ff;
       height: 70px;
       width: 70px;
@@ -133,7 +203,8 @@ const state = reactive({
       }
     }
 
-    .ccmc-left, .ccmc-right {
+    .ccmc-left,
+    .ccmc-right {
       width: 25%;
       display: flex;
       flex-direction: column;

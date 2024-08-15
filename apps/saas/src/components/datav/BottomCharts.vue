@@ -1,185 +1,232 @@
 <template>
   <div class="bottom-charts">
-    <div class="bc-chart-item">
-      <div class="bcci-header">
-        赵钱收费站
-      </div>
-      <dv-active-ring-chart :config="state.config1" />
-      <Label-Tag :config="state.labelConfig" />
-    </div>
-    <dv-decoration-2 class="decoration-1" :reverse="true" style="width:5px;" />
-
-    <div class="bc-chart-item">
-      <div class="bcci-header">
-        孙李收费站
-      </div>
-      <dv-active-ring-chart :config="state.config2" />
-      <Label-Tag :config="state.labelConfig" />
-    </div>
-
-    <dv-decoration-2 class="decoration-2" :reverse="true" style="width:5px;" />
-
-    <div class="bc-chart-item">
-      <div class="bcci-header">
-        周吴收费站
-      </div>
-      <dv-active-ring-chart :config="state.config3" />
-      <Label-Tag :config="state.labelConfig" />
-    </div>
-
-    <dv-decoration-2 class="decoration-3" :reverse="true" style="width:5px;" />
-
-    <div class="bc-chart-item">
-      <div class="bcci-header">
-        郑王收费站
-      </div>
-      <dv-active-ring-chart :config="state.config4" />
-      <Label-Tag :config="state.labelConfig" />
-    </div>
+    <el-row :gutter="0">
+      <el-col :span="6">
+        <dv-charts :option="lineOption1" style="width: 400px; height: 230px" />
+      </el-col>
+      <el-col :span="6">
+        <dv-charts :option="lineOption2" style="width: 400px; height: 230px" />
+      </el-col>
+      <el-col :span="6">
+        <dv-charts :option="lineOption3" style="width: 400px; height: 250px" />
+      </el-col>
+      <el-col :span="6">
+        <dv-charts :option="lineOption4" style="width: 400px; height: 230px" />
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script lang="ts" setup>
+import * as echarts from "echarts";
 
-const state = reactive({
-  config1: {
-    data: [
-      {
-        name: '收费站',
-        value: 356,
-      },
-      {
-        name: '监控中心',
-        value: 215,
-      },
-      {
-        name: '道路外场',
-        value: 90,
-      },
-      {
-        name: '其他',
-        value: 317,
-      },
+const lineOption1 = reactive({
+  title: {
+    text: "周销售额趋势",
+    style: {
+      fill: "#fff",
+    },
+  },
+  radar: {
+    indicator: [
+      { name: "西峡", max: 300 },
+      { name: "周口", max: 300 },
+      { name: "南阳", max: 300 },
+      { name: "驻马店", max: 300 },
+      { name: "郑州", max: 300 },
+      { name: "洛阳", max: 300 },
     ],
-    color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-    radius: '65%',
-    activeRadius: '70%',
   },
+  series: [
+    {
+      type: "radar",
+      data: [111, 256, 178, 152, 266, 132],
+    },
+  ],
+});
 
-  config2: {
+const lineOption2 = reactive({
+  title: {
+    text: "周销售额趋势",
+    style: {
+      fill: "#fff",
+    },
+  },
+  xAxis: {
+    name: "第一周",
+    data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+  },
+  yAxis: {
+    name: "销售额",
+    data: "value",
+  },
+  series: [
+    {
+      data: [1200, 2230, 1900, 2100, 3500, 4200, 3985],
+      type: "line",
+      smooth: true,
+      lineArea: {
+        show: true,
+        gradient: ["rgba(55, 162, 218, 0.6)", "rgba(55, 162, 218, 0)"],
+      },
+    },
+  ],
+});
+
+const lineOption3 = reactive({
+  series: [
+    {
+      type: "gauge",
+      startAngle: -Math.PI / 2,
+      endAngle: Math.PI * 1.5,
+      arcLineWidth: 10,
+      data: [
+        { name: "A", value: 25, gradient: ["#03c2fd", "#1ed3e5", "#2fded6"] },
+        {
+          name: "B",
+          value: 45,
+          gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
+          radius: "53%",
+        },
+        {
+          name: "C",
+          value: 65,
+          gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
+          radius: "46%",
+        },
+        {
+          name: "D",
+          value: 35,
+          gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
+          radius: "39%",
+        },
+        {
+          name: "E",
+          value: 25,
+          gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
+          radius: "32%",
+        },
+      ],
+      axisLabel: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      pointer: {
+        show: false,
+      },
+      dataItemStyle: {
+        lineCap: "round",
+      },
+      backgroundArc: {
+        show: false,
+      },
+      details: {
+        show: true,
+        formatter: "{name}占比{value}%",
+        position: "start",
+        offset: [-10, 0],
+        style: {
+          fill: "#1ed3e5",
+          fontSize: 13,
+          textAlign: "right",
+        },
+      },
+    },
+  ],
+});
+
+const lineOption4 = reactive({
+  title: {
+    text: "气温与降雨量走势图",
+  },
+  legend: {
+    data: ["降雨量", "气温"],
+    bottom: 10,
+  },
+  xAxis: {
     data: [
-      {
-        name: '收费站',
-        value: 615,
-      },
-      {
-        name: '监控中心',
-        value: 322,
-      },
-      {
-        name: '道路外场',
-        value: 198,
-      },
-      {
-        name: '其他',
-        value: 80,
-      },
+      "一月份",
+      "二月份",
+      "三月份",
+      "四月份",
+      "五月份",
+      "六月份",
+      "七月份",
+      "八月份",
+      "九月份",
+      "十月份",
+      "十一月份",
+      "十二月份",
     ],
-    color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-    radius: '65%',
-    activeRadius: '70%',
+    axisLabel: {
+      style: {
+        rotate: 20,
+        textAlign: "left",
+        textBaseline: "top",
+      },
+    },
+    axisTick: {
+      show: false,
+    },
   },
-
-  config3: {
-    data: [
-      {
-        name: '收费站',
-        value: 452,
+  yAxis: [
+    {
+      name: "降雨量",
+      data: "value",
+      min: 0,
+      max: 300,
+      interval: 50,
+      splitLine: {
+        style: {
+          lineDash: [3, 3],
+        },
       },
-      {
-        name: '监控中心',
-        value: 512,
+      axisLabel: {
+        formatter: "{value} ml",
       },
-      {
-        name: '道路外场',
-        value: 333,
+      axisTick: {
+        show: false,
       },
-      {
-        name: '其他',
-        value: 255,
+    },
+    {
+      name: "气温",
+      data: "value",
+      position: "right",
+      min: 0,
+      max: 30,
+      interval: 5,
+      splitLine: {
+        show: false,
       },
-    ],
-    color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-    radius: '65%',
-    activeRadius: '70%',
-  },
-
-  config4: {
-    data: [
-      {
-        name: '收费站',
-        value: 156,
+      axisLabel: {
+        formatter: "{value} °C",
       },
-      {
-        name: '监控中心',
-        value: 415,
+      axisTick: {
+        show: false,
       },
-      {
-        name: '道路外场',
-        value: 90,
+    },
+  ],
+  series: [
+    {
+      name: "降雨量",
+      data: [175, 125, 90, 130, 45, 65, 65, 47, 50, 52, 45, 37],
+      type: "bar",
+      gradient: {
+        color: ["#37a2da", "#67e0e3"],
       },
-      {
-        name: '其他',
-        value: 210,
-      },
-    ],
-    color: ['#00baff', '#3de7c9', '#fff', '#ffc530', '#469f4b'],
-    radius: '65%',
-    activeRadius: '70%',
-  },
-
-  labelConfig: {
-    data: ['收费站', '监控中心', '道路外场', '其他'],
-  },
-})
+      animationCurve: "easeOutBounce",
+    },
+    {
+      name: "气温",
+      data: [23, 18, 16, 14, 10, 8, 6, 6, 6, 6, 6, 5],
+      type: "line",
+      yAxisIndex: 1,
+      animationCurve: "easeOutBounce",
+    },
+  ],
+});
 </script>
 
-<style lang="less">
-.bottom-charts {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  position: relative;
-
-  .bc-chart-item {
-    width: 25%;
-    height: 100%;
-    padding-top: 20px;
-    box-sizing: border-box;
-  }
-
-  .bcci-header {
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    font-size: 20px;
-  }
-
-  .dv-active-ring-chart {
-    height: calc(~"100% - 80px");
-  }
-
-  .label-tag {
-    height: 30px;
-  }
-
-  .active-ring-name {
-    font-size: 18px !important;
-  }
-
-  .decoration-1, .decoration-2, .decoration-3 {
-    display: absolute;
-    left: 0%;
-  }
-}
-</style>
+<style lang="less"></style>
