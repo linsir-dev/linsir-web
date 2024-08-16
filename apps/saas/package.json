@@ -1,6 +1,6 @@
 {
-  "name": "saas",
-  "version": "1.0.0",
+  "name": "租户中心系统（SaaS）",
+  "version": "1.1.1",
   "private": true,
   "type": "module",
   "scripts": {
