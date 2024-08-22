@@ -17,12 +17,7 @@
       <el-col :span="6">
         <dv-digital-flop
           :config="state.flop1"
-          style="
-            width: 200px;
-            height: 50px;
-            margin-top: 15px;
-            font-weight: bold;
-          "
+          style="width: 200px; height: 50px; margin-top: 15px; font-weight: bold"
         />
       </el-col>
       <el-col :span="2">
@@ -36,73 +31,104 @@
       <el-col :span="6">
         <dv-digital-flop
           :config="state.flop2"
-          style="
-            width: 200px;
-            height: 50px;
-            margin-top: 15px;
-            font-weight: bold;
-          "
+          style="width: 200px; height: 50px; margin-top: 15px; font-weight: bold"
         />
       </el-col>
     </el-row>
 
     <div class="cc-main-container">
-      <dv-capsule-chart
-        :config="state.chart"
-        style="width: 300px; height: 200px"
-      />
-      <dv-capsule-chart
-        :config="state.chart"
-        style="width: 300px; height: 200px"
-      />
-      <dv-capsule-chart
-        :config="state.chart"
-        style="width: 300px; height: 200px"
-      />
+      <dv-capsule-chart :config="state.chart1" style="width: 300px; height: 200px" />
+      <dv-capsule-chart :config="state.chart2" style="width: 300px; height: 200px" />
+      <dv-capsule-chart :config="state.chart3" style="width: 300px; height: 200px" />
     </div>
     <div class="cc-main-container">
-      <dv-water-level-pond
-        :config="state.pond"
-        style="width: 300px; height: 200px"
-      />
-      <dv-water-level-pond
-        :config="state.pond"
-        style="width: 300px; height: 200px"
-      />
-      <dv-water-level-pond
-        :config="state.pond"
-        style="width: 300px; height: 200px"
-      />
+      <dv-water-level-pond :config="state.pond1" style="width: 300px; height: 200px" />
+      <dv-water-level-pond :config="state.pond2" style="width: 300px; height: 200px" />
+      <dv-water-level-pond :config="state.pond3" style="width: 300px; height: 200px" />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 const state = reactive({
-  pond: {
+  pond1: {
     data: [66],
   },
-  chart: {
+  pond2: {
+    data: [20],
+  },
+  pond3: {
+    data: [80],
+  },
+  chart1: {
     data: [
       {
-        name: "南阳",
+        name: "app-saas",
         value: 167,
       },
       {
-        name: "周口",
+        name: "app-auth",
         value: 67,
       },
       {
-        name: "漯河",
+        name: "app-sys",
         value: 123,
       },
       {
-        name: "郑州",
+        name: "app-base",
         value: 55,
       },
       {
-        name: "西峡",
+        name: "app-file",
         value: 98,
+      },
+    ],
+  },
+  chart2: {
+    data: [
+      {
+        name: "saas-026x",
+        value: 127,
+      },
+      {
+        name: "saas-096x",
+        value: 20,
+      },
+      {
+        name: "saas-05x",
+        value: 123,
+      },
+      {
+        name: "saas-056x",
+        value: 155,
+      },
+      {
+        name: "saas-059x",
+        value: 58,
+      },
+    ],
+  },
+  chart3: {
+    data: [
+      {
+        name: "ex-026x",
+        value: 127,
+      },
+      {
+        name: "ex-096x",
+        value: 20,
+      },
+      {
+        name: "ex-05x",
+        value: 13,
+      },
+      {
+        name: "ex-056x",
+        value: 15,
+      },
+      {
+        name: "ex-059x",
+        value: 8,
       },
     ],
   },

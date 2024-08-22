@@ -22,19 +22,17 @@ import * as echarts from "echarts";
 
 const lineOption1 = reactive({
   title: {
-    text: "周销售额趋势",
+    text: "系统状况",
     style: {
       fill: "#fff",
     },
   },
   radar: {
     indicator: [
-      { name: "西峡", max: 300 },
-      { name: "周口", max: 300 },
-      { name: "南阳", max: 300 },
-      { name: "驻马店", max: 300 },
-      { name: "郑州", max: 300 },
-      { name: "洛阳", max: 300 },
+      { name: "云cpu", max: 300 },
+      { name: "云内存", max: 300 },
+      { name: "云村塾", max: 300 },
+      { name: "网络", max: 300 },
     ],
   },
   series: [
@@ -47,17 +45,17 @@ const lineOption1 = reactive({
 
 const lineOption2 = reactive({
   title: {
-    text: "周销售额趋势",
+    text: "访问趋势",
     style: {
       fill: "#fff",
     },
   },
   xAxis: {
-    name: "第一周",
+    name: "本周",
     data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"],
   },
   yAxis: {
-    name: "销售额",
+    name: "访问趋势",
     data: "value",
   },
   series: [
@@ -81,30 +79,28 @@ const lineOption3 = reactive({
       endAngle: Math.PI * 1.5,
       arcLineWidth: 10,
       data: [
-        { name: "A", value: 25, gradient: ["#03c2fd", "#1ed3e5", "#2fded6"] },
         {
-          name: "B",
+          name: "App1",
+          value: 25,
+          gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
+        },
+        {
+          name: "App2",
           value: 45,
           gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
           radius: "53%",
         },
         {
-          name: "C",
+          name: "App3",
           value: 65,
           gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
           radius: "46%",
         },
         {
-          name: "D",
+          name: "App4",
           value: 35,
           gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
           radius: "39%",
-        },
-        {
-          name: "E",
-          value: 25,
-          gradient: ["#03c2fd", "#1ed3e5", "#2fded6"],
-          radius: "32%",
         },
       ],
       axisLabel: {
@@ -139,7 +135,10 @@ const lineOption3 = reactive({
 
 const lineOption4 = reactive({
   title: {
-    text: "气温与降雨量走势图",
+    text: "年操作走势图",
+    style: {
+      fill: "#fff",
+    },
   },
   legend: {
     data: ["降雨量", "气温"],

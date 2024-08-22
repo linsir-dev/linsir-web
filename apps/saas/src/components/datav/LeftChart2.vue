@@ -3,10 +3,7 @@
     <div class="lc2-header">实例租户状态</div>
     <dv-decoration-6 style="width: 100%; height: 30px" />
     <div class="lc2-details"></div>
-    <dv-conical-column-chart
-      :config="dataS.config"
-      style="width: 100%; height: 300px"
-    />
+    <dv-conical-column-chart :config="dataS.config" style="width: 100%; height: 300px" />
 
     <dv-decoration-2 style="height: 10px" />
   </div>
@@ -17,23 +14,23 @@ const dataS = reactive({
   config: {
     data: [
       {
-        name: "周口",
+        name: "0043**x",
         value: 55,
       },
       {
-        name: "南阳",
+        name: "0063**x",
         value: 120,
       },
       {
-        name: "西峡",
+        name: "0063**x",
         value: 71,
       },
       {
-        name: "驻马店",
+        name: "0043**x",
         value: 66,
       },
       {
-        name: "新乡",
+        name: "0023**x",
         value: 80,
       },
     ],

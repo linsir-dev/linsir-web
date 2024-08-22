@@ -7,64 +7,40 @@
           <dv-decoration-3 style="width: 100%; height: 5px" />
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config1"
-            style="width: 80px; height: 50px"
-          />
+          <dv-percent-pond :config="state.config1" style="width: 80px; height: 50px" />
           <span>auth-server</span>
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config2"
-            style="width: 80px; height: 50px"
-          />
-          <span>auth-server</span>
+          <dv-percent-pond :config="state.config2" style="width: 80px; height: 50px" />
+          <span>saas-server</span>
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config3"
-            style="width: 80px; height: 50px"
-          />
-          <span>auth-server</span>
+          <dv-percent-pond :config="state.config3" style="width: 80px; height: 50px" />
+          <span>base-server</span>
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config4"
-            style="width: 80px; height: 50px"
-          />
-          <span>auth-server</span>
+          <dv-percent-pond :config="state.config4" style="width: 80px; height: 50px" />
+          <span>iot-server</span>
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config5"
-            style="width: 80px; height: 50px"
-          />
-          <span>auth-server</span>
+          <dv-percent-pond :config="state.config5" style="width: 80px; height: 50px" />
+          <span>file-server</span>
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config6"
-            style="width: 80px; height: 50px"
-          />
-          <span>auth-server</span>
+          <dv-percent-pond :config="state.config6" style="width: 80px; height: 50px" />
+          <span>sms-server</span>
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config7"
-            style="width: 80px; height: 50px"
-          />
-          <span>auth-server</span>
+          <dv-percent-pond :config="state.config7" style="width: 80px; height: 50px" />
+          <span>sys-server</span>
         </el-col>
         <el-col :span="6">
-          <dv-percent-pond
-            :config="state.config8"
-            style="width: 80px; height: 50px"
-          />
-          <span>auth-server</span>
+          <dv-percent-pond :config="state.config8" style="width: 80px; height: 50px" />
+          <span>gen-server</span>
         </el-col>
       </el-row>
     </div>
-    <div class="lc1-header" style="margin-top: 10px">应用状态</div>
+    <div class="lc1-header" style="margin-top: 10px">应用状态（cpu/Ram）</div>
     <dv-decoration-3 style="width: 100%; height: 30px; margin-top: 10px" />
     <el-row :gutter="5">
       <el-col :span="12">
@@ -75,7 +51,7 @@
       </el-col>
       <el-col :span="12">
         <dv-water-level-pond
-          :config="state.configpond"
+          :config="state.configpond1"
           style="width: 100%; height: 200px"
         />
       </el-col>
@@ -93,7 +69,8 @@ const state = reactive({
   config6: { value: 30, localGradient: true },
   config7: { value: 60, localGradient: true },
   config8: { value: 25, localGradient: true },
-  configpond: { data: [58] },
+  configpond: { data: [58, 30, 20] },
+  configpond1: { data: [28, 10, 20] },
 });
 </script>
 
