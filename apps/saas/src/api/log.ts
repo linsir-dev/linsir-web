@@ -2,6 +2,8 @@ import request from "@/utils/request";
 
 const LOG_BASE_URL = "/api/v1/logs";
 
+const AUTH_DASHBOARD_URL = "/linsir-auth-server/dashboard";
+
 class LogAPI {
   /**
    * 获取日志分页列表
@@ -24,7 +26,7 @@ class LogAPI {
    */
   static getVisitTrend(queryParams: VisitTrendQuery) {
     return request<any, VisitTrendVO>({
-      url: `${LOG_BASE_URL}/visit-trend`,
+      url: `${AUTH_DASHBOARD_URL}/visitTrend`,
       method: "get",
       params: queryParams,
     });
@@ -38,7 +40,7 @@ class LogAPI {
    */
   static getVisitStats() {
     return request<any, VisitStatsVO[]>({
-      url: `${LOG_BASE_URL}/visit-stats`,
+      url: `${AUTH_DASHBOARD_URL}/visitStats`,
       method: "get",
     });
   }
@@ -52,8 +54,6 @@ export default LogAPI;
 export interface LogPageQuery extends PageQuery {
   /** 搜索关键字 */
   keywords?: string;
-  /** 操作时间 */
-  createTime?: [string, string];
 }
 
 /**

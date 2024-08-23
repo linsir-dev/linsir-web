@@ -72,5 +72,5 @@
   "i18n-ally.enabledFrameworks": ["vue", "react"],
   "i18n-ally.localesPaths": ["src/lang"],
   "scss.lint.unknownAtRules": "ignore",
-  "vue3snippets.enable-compile-vue-file-on-did-save-code": true
+  "vue3snippets.enable-compile-vue-file-on-did-save-code": false
 }
