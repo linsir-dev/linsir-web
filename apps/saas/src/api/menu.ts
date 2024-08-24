@@ -18,6 +18,16 @@ class MenuAPI {
   }
 
   /**
+   * 通过appId 获取菜单树形列表
+   */
+  static getMenusByAppId() {
+    return request<any, RouteVO[]>({
+      url: `${MENU_BASE_URL}/getMenusByAppId/2`,
+      method: "get",
+    });
+  }
+
+  /**
    * 获取菜单树形列表
    *
    * @param queryParams 查询参数
