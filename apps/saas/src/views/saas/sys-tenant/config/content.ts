@@ -1,10 +1,12 @@
 import UserAPI from "@/api/user";
 import RoleAPI from "@/api/role";
+import TenantAPI from "@/api/sysTenant";
 import type { UserPageQuery } from "@/api/user";
+import type { TenantPageQuery } from "@/api/sysTenant";
 import type { IContentConfig } from "@/components/CURD/types";
 
-const contentConfig: IContentConfig<UserPageQuery> = {
-  pageName: "sys:user",
+const contentConfig: IContentConfig<TenantPageQuery> = {
+  pageName: "sys:tenant",
   table: {
     border: true,
     highlightCurrentRow: true,
@@ -16,7 +18,7 @@ const contentConfig: IContentConfig<UserPageQuery> = {
     pageSizes: [10, 20, 30, 50],
   },
   indexAction: function (params) {
-    return UserAPI.getPage(params);
+    return TenantAPI.list(params);
   },
   deleteAction: UserAPI.deleteByIds,
   importAction(file) {
@@ -52,44 +54,25 @@ const contentConfig: IContentConfig<UserPageQuery> = {
   defaultToolbar: ["refresh", "filter", "imports", "exports", "search"],
   cols: [
     { type: "selection", width: 50, align: "center" },
-    { label: "编号", align: "center", prop: "id", width: 100, show: false },
-    { label: "用户名", align: "center", prop: "username" },
-    { label: "头像", align: "center", prop: "avatar", templet: "image" },
-    { label: "用户昵称", align: "center", prop: "nickname", width: 120 },
-    { label: "性别", align: "center", prop: "genderLabel", width: 100 },
-    { label: "部门", align: "center", prop: "deptName", width: 120 },
     {
-      label: "角色",
+      label: "id",
       align: "center",
-      prop: "roleNames",
-      width: 120,
-      columnKey: "roleIds",
-      filters: [],
-      filterMultiple: true,
-      filterJoin: ",",
-      async initFn(colItem) {
-        const roleOptions = await RoleAPI.getOptions();
-        colItem.filters = roleOptions.map((item) => {
-          return { text: item.label, value: item.value };
-        });
-      },
+      prop: "id",
+      width: 100,
+      show: false,
     },
+    { label: "租户编码", align: "center", prop: "tenantCode", width: 250 },
+    { label: "租户", align: "center", prop: "name", width: 300 },
+    { label: "联系方式", align: "center", prop: "tel", width: 120 },
+    { label: "电话", align: "center", prop: "phone", width: 100 },
+    { label: "传真", align: "center", prop: "fax", width: 120 },
     {
-      label: "手机号码",
+      label: "地址",
       align: "center",
-      prop: "mobile",
-      templet: "custom",
-      slotName: "mobile",
-      width: 150,
+      prop: "address",
+      width: 250,
     },
-    {
-      label: "状态",
-      align: "center",
-      prop: "status",
-      templet: "custom",
-      slotName: "status",
-    },
-    { label: "创建时间", align: "center", prop: "createTime", width: 180 },
+    { label: "过期时间", align: "center", prop: "timeExpiration", width: 180 },
     {
       label: "操作",
       align: "center",
@@ -101,7 +84,17 @@ const contentConfig: IContentConfig<UserPageQuery> = {
           name: "reset_pwd",
           auth: "password:reset",
           icon: "refresh-left",
-          text: "重置密码",
+          text: "设置",
+        },
+        {
+          name: "name1",
+          auth: "a",
+          text: "配置网站",
+        },
+        {
+          name: "name1",
+          auth: "a",
+          text: "配置商务",
         },
         "edit",
         "delete",

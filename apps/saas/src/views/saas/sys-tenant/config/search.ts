@@ -32,7 +32,7 @@ const searchConfig: ISearchConfig = {
         },
       },
       async initFn(formItem) {
-        formItem.attrs.data = await DeptAPI.getOptions();
+        //formItem.attrs.data = await DeptAPI.getOptions();
         // 注意:如果initFn函数不是箭头函数,this会指向此配置项对象,那么也就可以用this来替代形参formItem
         // this.attrs!.data = await DeptAPI.getOptions();
       },

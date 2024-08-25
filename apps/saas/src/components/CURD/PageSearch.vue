@@ -1,10 +1,5 @@
 <template>
-  <el-card
-    shadow="never"
-    class="mb-[10px]"
-    v-show="visible"
-    v-hasPerm="[`${searchConfig.pageName}:query`]"
-  >
+  <el-card shadow="never" class="mb-[10px]" v-show="visible">
     <el-form ref="queryFormRef" :model="queryParams" :inline="true">
       <template v-for="(item, index) in formItems" :key="item.prop">
         <el-form-item

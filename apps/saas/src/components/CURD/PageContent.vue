@@ -9,7 +9,6 @@
             <!-- 新增 -->
             <template v-if="item === 'add'">
               <el-button
-                v-hasPerm="[`${contentConfig.pageName}:${item}`]"
                 type="success"
                 icon="plus"
                 @click="handleToolbar(item)"
@@ -20,7 +19,6 @@
             <!-- 删除 -->
             <template v-else-if="item === 'delete'">
               <el-button
-                v-hasPerm="[`${contentConfig.pageName}:${item}`]"
                 type="danger"
                 icon="delete"
                 :disabled="removeIds.length === 0"
@@ -32,7 +30,6 @@
             <!-- 导入 -->
             <template v-else-if="item === 'import'">
               <el-button
-                v-hasPerm="[`${contentConfig.pageName}:${item}`]"
                 type="default"
                 icon="upload"
                 @click="handleToolbar(item)"
@@ -43,7 +40,6 @@
             <!-- 导出 -->
             <template v-else-if="item === 'export'">
               <el-button
-                v-hasPerm="[`${contentConfig.pageName}:${item}`]"
                 type="default"
                 icon="download"
                 @click="handleToolbar(item)"
@@ -55,7 +51,6 @@
           <!-- 其他 -->
           <template v-else-if="typeof item === 'object'">
             <el-button
-              v-hasPerm="[`${contentConfig.pageName}:${item.auth}`]"
               :icon="item.icon"
               :type="item.type ?? 'default'"
               @click="handleToolbar(item.name)"
@@ -101,7 +96,6 @@
                 icon="download"
                 circle
                 title="导出"
-                v-hasPerm="[`${contentConfig.pageName}:export`]"
                 @click="handleToolbar(item)"
               />
             </template>
@@ -111,7 +105,6 @@
                 icon="upload"
                 circle
                 title="导入"
-                v-hasPerm="[`${contentConfig.pageName}:import`]"
                 @click="handleToolbar(item)"
               />
             </template>
@@ -121,7 +114,6 @@
                 icon="search"
                 circle
                 title="搜索"
-                v-hasPerm="[`${contentConfig.pageName}:query`]"
                 @click="handleToolbar(item)"
               />
             </template>
@@ -133,7 +125,6 @@
                 :icon="item.icon"
                 circle
                 :title="item.title"
-                v-hasPerm="[`${contentConfig.pageName}:${item.auth}`]"
                 @click="handleToolbar(item.name)"
               />
             </template>
@@ -218,7 +209,6 @@
                   :active-text="col.activeText ?? ''"
                   :inactive-text="col.inactiveText ?? ''"
                   :validate-event="false"
-                  :disabled="!hasAuth(`${contentConfig.pageName}:modify`)"
                   @change="
                     pageData.length > 0 &&
                       handleModify(col.prop, scope.row[col.prop], scope.row)
@@ -285,7 +275,6 @@
                   <!-- 编辑/删除 -->
                   <template v-if="item === 'edit' || item === 'delete'">
                     <el-button
-                      v-hasPerm="[`${contentConfig.pageName}:${item}`]"
                       :type="item === 'edit' ? 'primary' : 'danger'"
                       :icon="item"
                       size="small"
@@ -307,7 +296,6 @@
                 <template v-else-if="typeof item === 'object'">
                   <el-button
                     v-if="item.render === undefined || item.render(scope.row)"
-                    v-hasPerm="[`${contentConfig.pageName}:${item.auth}`]"
                     :icon="item.icon"
                     :type="item.type ?? 'primary'"
                     size="small"
@@ -966,12 +954,13 @@ function fetchPageData(formData: IObject = {}, isRestart = false) {
         : formData
     )
     .then((data) => {
+      console.log(data);
       if (showPagination) {
         if (props.contentConfig.parseData) {
           data = props.contentConfig.parseData(data);
         }
-        pagination.total = data.total;
-        pageData.value = data.list;
+        //pagination.total = data.total;
+        pageData.value = data;
       } else {
         pageData.value = data;
       }

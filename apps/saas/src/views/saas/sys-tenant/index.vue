@@ -1,487 +1,70 @@
 <template>
   <div class="app-container">
-    <el-row :gutter="5">
-      <el-col :span="6">
-        <el-card>
-          <template #header>
-            <div style="width: 100%; height: 30px">
-              <div style="float: left; margin-right: 10px">
-                <el-avatar
-                  :size="30"
-                  src="http://ygde.oss-cn-zhangjiakou.aliyuncs.com/l/linsir.png"
-                />
-              </div>
-              <div style="float: left">
-                编码:
-                <span>
-                  <el-link>ZHBM-1573173536510578688</el-link>
-                </span>
-              </div>
-              <div style="float: right">
-                <span style="color: #67c23a">激活</span>
-              </div>
-            </div>
-            <div style="width: 100">
-              <el-link>宜昌公交集团有限责任公司</el-link>
-            </div>
-          </template>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Base</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="100"
-                  status="success"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Web</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="60"
-                  status="warning"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Business</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="30"
-                  status="exception"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%; margin-top: 30px">
-            <el-row :gutter="0">
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><Menu /></el-icon>
-                  <span>应用</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    5
-                  </span>
-                </div>
-              </el-col>
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><MoreFilled /></el-icon>
-                  <span>实例</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    10
-                  </span>
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card>
-          <template #header>
-            <div style="width: 100%; height: 30px">
-              <div style="float: left; margin-right: 10px">
-                <el-avatar
-                  :size="30"
-                  src="http://ygde.oss-cn-zhangjiakou.aliyuncs.com/l/linsir.png"
-                />
-              </div>
-              <div style="float: left">
-                编码:
-                <span>
-                  <el-link>ZHBM-1573174504069402624</el-link>
-                </span>
-              </div>
-              <div style="float: right">
-                <span style="color: #67c23a">激活</span>
-              </div>
-            </div>
-            <div style="width: 100">
-              <el-link>武汉市公共交通集团有限责任公司</el-link>
-            </div>
-          </template>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Base</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="100"
-                  status="success"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Web</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="40"
-                  status="warning"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Business</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="30"
-                  status="exception"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%; margin-top: 30px">
-            <el-row :gutter="0">
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><Menu /></el-icon>
-                  <span>应用</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    5
-                  </span>
-                </div>
-              </el-col>
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><MoreFilled /></el-icon>
-                  <span>实例</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    10
-                  </span>
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card>
-          <template #header>
-            <div style="width: 100%; height: 30px">
-              <div style="float: left; margin-right: 10px">
-                <el-avatar
-                  :size="30"
-                  src="http://ygde.oss-cn-zhangjiakou.aliyuncs.com/l/linsir.png"
-                />
-              </div>
-              <div style="float: left">
-                编码:
-                <span>
-                  <el-link>ZHBM-1574246958711836672</el-link>
-                </span>
-              </div>
-              <div style="float: right">
-                <span style="color: #67c23a">激活</span>
-              </div>
-            </div>
-            <div style="width: 100">
-              <el-link>九州通医药集团股份有限公司</el-link>
-            </div>
-          </template>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Base</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="100"
-                  status="success"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Web</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="30"
-                  status="warning"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Business</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="0"
-                  status="exception"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%; margin-top: 30px">
-            <el-row :gutter="0">
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><Menu /></el-icon>
-                  <span>应用</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    10
-                  </span>
-                </div>
-              </el-col>
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><MoreFilled /></el-icon>
-                  <span>实例</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    30
-                  </span>
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card>
-          <template #header>
-            <div style="width: 100%; height: 30px">
-              <div style="float: left; margin-right: 10px">
-                <el-avatar
-                  :size="30"
-                  src="http://ygde.oss-cn-zhangjiakou.aliyuncs.com/l/linsir.png"
-                />
-              </div>
-              <div style="float: left">
-                编码:
-                <span>
-                  <el-link>ZHBM-1574247977608941568</el-link>
-                </span>
-              </div>
-              <div style="float: right">
-                <span style="color: #67c23a">激活</span>
-              </div>
-            </div>
-            <div style="width: 100">
-              <el-link>中南建筑设计院股份有限公司</el-link>
-            </div>
-          </template>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Base</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="100"
-                  status="success"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Web</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="60"
-                  status="warning"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Business</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="30"
-                  status="exception"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%; margin-top: 30px">
-            <el-row :gutter="0">
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><Menu /></el-icon>
-                  <span>应用</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    5
-                  </span>
-                </div>
-              </el-col>
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><MoreFilled /></el-icon>
-                  <span>实例</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    10
-                  </span>
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-card>
-      </el-col>
-      <el-col :span="6">
-        <el-card>
-          <template #header>
-            <div style="width: 100%; height: 30px">
-              <div style="float: left; margin-right: 10px">
-                <el-avatar
-                  :size="30"
-                  src="http://ygde.oss-cn-zhangjiakou.aliyuncs.com/l/linsir.png"
-                />
-              </div>
-              <div style="float: left">
-                编码:
-                <span>
-                  <el-link>ZHBM-1576028242157113344</el-link>
-                </span>
-              </div>
-              <div style="float: right">
-                <span style="color: #67c23a">激活</span>
-              </div>
-            </div>
-            <div style="width: 100">
-              <el-link>上海市消防救援总队</el-link>
-            </div>
-          </template>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Base</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="90"
-                  status="success"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Web</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="50"
-                  status="warning"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%">
-            <el-row :gutter="0">
-              <el-col :span="6">Business</el-col>
-              <el-col :span="18">
-                <el-progress
-                  :text-inside="true"
-                  :stroke-width="24"
-                  :percentage="30"
-                  status="exception"
-                />
-              </el-col>
-            </el-row>
-          </div>
-          <div style="width: 100%; margin-top: 30px">
-            <el-row :gutter="0">
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><Menu /></el-icon>
-                  <span>应用</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    5
-                  </span>
-                </div>
-              </el-col>
-              <el-col :span="12">
-                <div style="text-align: center">
-                  <el-icon><MoreFilled /></el-icon>
-                  <span>实例</span>
-                </div>
-                <div style="text-align: center">
-                  <span
-                    style="font-size: 25px; color: #67c23a; font-weight: bold"
-                  >
-                    15
-                  </span>
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-card>
-      </el-col>
-    </el-row>
+    <!-- 列表 -->
+    <!-- 搜索 -->
+    <page-search
+      ref="searchRef"
+      :search-config="searchConfig"
+      @query-click="handleQueryClick"
+      @reset-click="handleResetClick"
+    >
+      xxx
+    </page-search>
+
+    <!-- 列表 -->
+    <page-content
+      ref="contentRef"
+      :content-config="contentConfig"
+      @add-click="handleAddClick"
+      @edit-click="handleEditClick"
+      @export-click="handleExportClick"
+      @search-click="handleSearchClick"
+      @toolbar-click="handleToolbarClick"
+      @operat-click="handleOperatClick"
+      @filter-change="handleFilterChange"
+    >
+      <template #status="scope">
+        <el-tag :type="scope.row[scope.prop] == 1 ? 'success' : 'info'">
+          {{ scope.row[scope.prop] == 1 ? "启用" : "禁用" }}
+        </el-tag>
+      </template>
+      <template #mobile="scope">
+        <el-text>{{ scope.row[scope.prop] }}</el-text>
+        <copy-button
+          v-if="scope.row[scope.prop]"
+          :text="scope.row[scope.prop]"
+          style="margin-left: 2px"
+        />
+      </template>
+    </page-content>
+
+    <!-- 新增 -->
+    <page-modal
+      ref="addModalRef"
+      :modal-config="addModalConfig"
+      @submit-click="handleSubmitClick"
+    >
+      <template #gender="scope">
+        <dictionary v-model="scope.formData[scope.prop]" code="gender" />
+      </template>
+    </page-modal>
+
+    <!-- 编辑 -->
+    <page-modal
+      ref="editModalRef"
+      :modal-config="editModalConfig"
+      @submit-click="handleSubmitClick"
+    >
+      <template #gender="scope">
+        <dictionary v-model="scope.formData[scope.prop]" code="gender" />
+      </template>
+    </page-modal>
   </div>
 </template>
 
 <script setup lang="ts">
 import UserAPI from "@/api/user";
+import TenantAPI from "@/api/sysTenant";
 import DeptAPI from "@/api/dept";
 import RoleAPI from "@/api/role";
 import type { IObject, IOperatData } from "@/components/CURD/types";
@@ -511,17 +94,17 @@ const {
 async function handleAddClick() {
   addModalRef.value?.setModalVisible();
   // 加载部门下拉数据源
-  addModalConfig.formItems[2]!.attrs!.data = await DeptAPI.getOptions();
+  //addModalConfig.formItems[2]!.attrs!.data = await DeptAPI.getOptions();
   // 加载角色下拉数据源
-  addModalConfig.formItems[4]!.options = await RoleAPI.getOptions();
+  //addModalConfig.formItems[4]!.options = await RoleAPI.getOptions();
 }
 // 编辑
 async function handleEditClick(row: IObject) {
   editModalRef.value?.setModalVisible();
   // 加载部门下拉数据源
-  editModalConfig.formItems[2]!.attrs!.data = await DeptAPI.getOptions();
+  //editModalConfig.formItems[2]!.attrs!.data = await DeptAPI.getOptions();
   // 加载角色下拉数据源
-  editModalConfig.formItems[4]!.options = await RoleAPI.getOptions();
+  //editModalConfig.formItems[4]!.options = await RoleAPI.getOptions();
   // 根据id获取数据进行填充
   const data = await UserAPI.getFormData(row.id);
   editModalRef.value?.setFormData(data);
@@ -556,15 +139,4 @@ function handleOperatClick(data: IOperatData) {
     });
   }
 }
-
-// 切换示例
-const isA = ref(true);
 </script>
-
-<style scoped>
-.el-row {
-  .el-col {
-    margin-top: 10px;
-  }
-}
-</style>
